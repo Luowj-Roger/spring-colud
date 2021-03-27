@@ -18,14 +18,14 @@ public class OrderProperties {
     /**
      * 订单支付超时时长，单位：秒。
      */
-    @Value(value = "${order.pay-timeout-seconds}")
+    /*@Value(value = "${order.pay-timeout-seconds}")
     private Integer payTimeoutSeconds;
 
-    /**
+    *//**
      * 订单创建频率，单位：秒
-     */
+     *//*
     @Value(value = "${order.create-frequency-seconds}")
-    private Integer createFrequencySeconds;
+    private Integer createFrequencySeconds;*/
 
     // ... 省略 setter/getter 方法
 
