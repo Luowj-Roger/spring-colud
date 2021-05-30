@@ -2,7 +2,8 @@ package com.roger.springcloud.providerdemo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.roger.springcloud.providerdemo.config.OrderProperties;
-import com.roger.springcloud.providerdemo.pojo.User;
+import com.roger.springcloud.providerdemo.entity.po.User;
+import com.roger.springcloud.providerdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,9 @@ public class ProviderController {
     @Autowired
     private OrderProperties orderProperties;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * 测试 @ConfigurationProperties 注解的配置属性类
      */
@@ -40,20 +44,17 @@ public class ProviderController {
     }
 
     @GetMapping("/user/{id}")
-    public User queryById(@PathVariable Long id){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    public User queryById(@PathVariable Integer id){
+        if(id==5) {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        //System.out.println("配置文件中的test.name为：" + name);
         User user  = new User();
-        user.setId(id);
-        user.setAge(25);
-        user.setName("roger");
-        user.setBirthday(new Date());
-        user.setNote("ddddbeizhu");
-        user.setUserName("luowenjie");
+        user = userService.getUser(id);
+
         return user;
     }
 }
