@@ -20,7 +20,7 @@ public class ConsumerFeignController {
     private UserClient userClient;
 
     @GetMapping("/user/{id}")
-    public User queryById(@PathVariable Long id){
+    public User queryById(@PathVariable Integer id){
         /*if (id == 1) {
             System.out.println("bbbb");
             try {

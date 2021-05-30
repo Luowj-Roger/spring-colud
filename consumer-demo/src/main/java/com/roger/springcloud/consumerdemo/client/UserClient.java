@@ -19,5 +19,5 @@ public interface UserClient {
     //http://demo-provider/provider/user/123
     //@GetMapping("/user/{id}")
     @RequestMapping(value = "/provider/user/{id}",method = RequestMethod.GET)
-    User queryById(@PathVariable(value = "id")  Long id);
+    User queryById(@PathVariable(value = "id")  Integer id);
 }
